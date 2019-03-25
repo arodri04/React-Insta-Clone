@@ -1,0 +1,22 @@
+.searchbar {
+  width: 1000px;
+
+  margin: 10px auto;
+  border-bottom: 1px solid grey;
+  padding-bottom: 20px;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+img {
+  height: 28px;
+  margin-left: 20px;
+}
+.instaspelled {
+  padding-left: 20px;
+  border-left: 1px solid grey;
+}
