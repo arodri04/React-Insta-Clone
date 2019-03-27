@@ -1,29 +1,51 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Searchbar from "./components/searchbar/searchbar";
-import dummydata from "./dummy-data";
-import PostContainter from "./components/PostContainer";
+import PostPage from "./components/postpage.js";
+import Login from "./HOC.js";
+import withConditionalRender from "./ConditionalHOC.js";
 
-class App extends Component {
+const ConditionalRender = withConditionalRender(Login)(PostPage);
+
+class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      dummydata: dummydata
+      Name: "",
+      Pass: "",
+      choice: true
     };
   }
+  UserInput = event => {
+    this.setState({ Name: event.target.value });
+    console.log(this.state.Name);
+  };
 
+  Password = event => {
+    this.setState({ Pass: event.target.value });
+    console.log(this.state.Pass);
+  };
+  Check = event => {
+    event.preventDefault();
+
+    if (this.state.Name === "sam") {
+      if (this.state.Pass === "me") {
+        this.setState({ choice: !this.state.choice });
+      }
+    }
+  };
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <Searchbar />
-
-          <PostContainter dummydata={this.state.dummydata} />
-        </header>
+      <div>
+        <ConditionalRender
+          choice={this.state.choice}
+          UserInput={this.UserInput}
+          Password={this.Password}
+          Name={this.state.Name}
+          Pass={this.state.Pass}
+          Check={this.Check}
+        />
       </div>
     );
   }
 }
-console.log(dummydata[0].username);
+
 export default App;

@@ -6,7 +6,7 @@ import compass from "./img/compass.png";
 import add from "./img/add.png";
 import heart from "./img/heart.png";
 
-const Searchbar = () => {
+const Searchbar = props => {
   return (
     <div className="searchbar">
       <div className="items">
@@ -14,7 +14,12 @@ const Searchbar = () => {
           <img src={instalogo} />
           <img src={instaspelled} className="instaspelled" />
         </div>
-        <input placeholder="Search" />
+        <input
+          placeholder="Search"
+          onSubmit={props.Go}
+          onChange={props.SInput}
+        />
+        <button onClick={props.Go}>search</button>
         <div className="smallicon">
           <img src={compass} />
           <img src={heart} />

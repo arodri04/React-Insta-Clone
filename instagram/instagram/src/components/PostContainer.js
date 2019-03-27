@@ -5,7 +5,6 @@ import heart from "../heart.png";
 import CommentContainer from "./CommentContainer";
 
 const PostContainer = props => {
-  console.log(props.dummydata[0].username);
   return (
     <div className="postcontainer">
       <div className="posttitle">
@@ -16,15 +15,16 @@ const PostContainer = props => {
             <div className="personimage">
               <img src={person.imageUrl} />
             </div>
+
             <div className="icons">
-              <img src={heart} />
+              <img onClick={props.like} src={heart} />
               <img src={message} />
             </div>
             <div className="likes">
               <h2>{person.likes} Likes</h2>
             </div>
             <div>
-              <CommentContainer stuff={person.comments} />
+              <CommentContainer stuff={person.comments} comm={props.comm} />
             </div>
           </div>
         ))}

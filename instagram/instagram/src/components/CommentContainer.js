@@ -1,19 +1,24 @@
 import React from "react";
 import "./commentcss.css";
+import PropTypes from "prop-types";
+
 const CommentContainer = props => {
-  console.log(props);
   return (
     <div className="commentcont">
       {props.stuff.map(com => (
         <div className="comments">
-          <h4>{com.username}</h4> <p> {com.text}</p>
+          <p>
+            <strong>{com.username}</strong> {com.text}
+          </p>
         </div>
       ))}
-      <div className="commentbar">
-        <input placeholder="Comment" />
-      </div>
     </div>
   );
 };
-
+CommentContainer.propTypes = {
+  stuff: PropTypes.shape({
+    username: PropTypes.number.isRequired,
+    text: PropTypes.string
+  })
+};
 export default CommentContainer;
