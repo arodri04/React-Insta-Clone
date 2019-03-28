@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import styled from "styled-components";
 import "../App.css";
 import Searchbar from "./searchbar/searchbar";
 import dummydata from "../dummy-data";
@@ -7,6 +7,27 @@ import message from "../message.png";
 import heart from "../heart.png";
 import CommentContainer from "./CommentContainer";
 //import PostContainter from "./components/PostContainer";
+
+const PDiv = styled.div`
+  width: 1000px;
+  margin: 20px auto;
+`;
+const TDiv = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
+
+const PeopleDiv = styled.div`
+  border: 1px solid grey;
+  width: 80%;
+  margin: 20px;
+`;
+const PersonImage = styled.img`
+  margin: 10px 0;
+  width: 100%;
+  height: auto;
+`;
 
 class PostPage extends Component {
   constructor() {
@@ -81,14 +102,14 @@ class PostPage extends Component {
             Go={this.Go}
           />
         </header>
-        <div className="postcontainer">
-          <div className="posttitle">
+        <PDiv>
+          <TDiv>
             {this.state.dummydata.map(person => (
-              <div className="people">
+              <PeopleDiv>
                 <img src={person.thumbnailUrl} />
                 {person.username}
                 <div className="personimage">
-                  <img src={person.imageUrl} />
+                  <PersonImage src={person.imageUrl} />
                 </div>
 
                 <div className="icons">
@@ -122,10 +143,10 @@ class PostPage extends Component {
                     value={this.state.comm}
                   />
                 </form>
-              </div>
+              </PeopleDiv>
             ))}
-          </div>
-        </div>
+          </TDiv>
+        </PDiv>
       </div>
     );
   }

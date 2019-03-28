@@ -1,15 +1,32 @@
 import React from "react";
-import "./postcontainer.css";
+// import "./postcontainer.css";
+import styled from "styled-components";
 import message from "../message.png";
 import heart from "../heart.png";
 import CommentContainer from "./CommentContainer";
 
+const PDiv = styled.div`
+  width: 1000px;
+  margin: 20px auto;
+`;
+const TDiv = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
+
+const PeopleDiv = styled.div`
+  border: 1px solid grey;
+  width: 80%;
+  margin: 20px;
+`;
+
 const PostContainer = props => {
   return (
-    <div className="postcontainer">
-      <div className="posttitle">
+    <PDiv>
+      <TDiv>
         {props.dummydata.map(person => (
-          <div className="people">
+          <PeopleDiv>
             <img src={person.thumbnailUrl} />
             {person.username}
             <div className="personimage">
@@ -26,10 +43,10 @@ const PostContainer = props => {
             <div>
               <CommentContainer stuff={person.comments} comm={props.comm} />
             </div>
-          </div>
+          </PeopleDiv>
         ))}
-      </div>
-    </div>
+      </TDiv>
+    </PDiv>
   );
 };
 

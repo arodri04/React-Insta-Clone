@@ -1,9 +1,4 @@
-.postcontainer {
-  width: 1000px;
-  margin: 20px auto;
-}
-
-.posttitle {
+/* .posttitle {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -26,4 +21,4 @@ h2 {
   margin: 10px 0;
   width: 100%;
   height: auto;
-}
+} */
