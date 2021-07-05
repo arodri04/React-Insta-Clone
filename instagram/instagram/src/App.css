@@ -1,0 +1,29 @@
+h2 {
+  padding: 0;
+  margin: 0 10px;
+  font-size: 90%;
+}
+
+.likes {
+  margin: 20px;
+}
+
+.comments {
+  display: flex;
+  margin: 20px;
+}
+
+.commentbar {
+  width: 100%;
+  align-content: center;
+  border: none;
+}
+
+.hidden {
+  display: none;
+}
+.show {
+  display: flex;
+  margin: 300px 30%;
+  width: 1000px;
+}
